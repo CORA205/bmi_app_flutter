@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
               padding: EdgeInsets.all(10),
@@ -153,33 +153,31 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               height: 150,
               width: double.infinity,
-              child: Expanded(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.blue,
-                    ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("HEIGHT", style: TextStyle(fontSize: 20)),
-                      Text("${height.toStringAsFixed(0)}cm", style: TextStyle(fontSize: 20)),
-                      Slider(
-                        label: height.toString(),
-                        onChanged: (value){
-                          setState(() {
-                            height = value.toInt();
-                          });
-                        },
-                        value: height.toDouble(),
-                        divisions: 300,
-                        max: 300,
-                      )
-                    ]
-                  ),
-              )
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.blue,
+                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("HEIGHT", style: TextStyle(fontSize: 20)),
+                  Text("${height.toStringAsFixed(0)}cm", style: TextStyle(fontSize: 20)),
+                  Slider(
+                    label: height.toString(),
+                    onChanged: (value){
+                      setState(() {
+                        height = value.toInt();
+                      });
+                    },
+                    value: height.toDouble(),
+                    divisions: 300,
+                    max: 300,
+                  )
+                ]
               ),
+                            ),
             ),
             Container(
               padding: EdgeInsets.all(10),
@@ -268,6 +266,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ]
               ),
             ),
+            SizedBox(height: 10),
             ElevatedButton(
               onPressed: gender.isNotEmpty && weight > 0 && height > 0 ? (){
                 setState(() {
